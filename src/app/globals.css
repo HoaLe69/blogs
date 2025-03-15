@@ -1,6 +1,29 @@
 @import "tailwindcss";
 @import "normalize.css";
 
+@theme {
+  /*Main background*/
+  --color-dark-bg-base: #282828;
+  --color-light-bg-base: #fbf1c7;
+  /*Header background*/
+  --color-dark-header-bg: #3c3836;
+  --color-light-header-bg: #d5c4a1;
+  /*Primary Text*/
+  --color-dark-text-primary: #eddbb2;
+  --color-light-text-primary: #282828;
+  /*Secondary Text*/
+  --color-dark-text-secondary: #a89984;
+  --color-light-text-secondary: #7c6f64;
+  /*Accent Text*/
+  --color-dark-text-emphasis: #fe8019;
+  --color-light-text-emphasis: #fe8019;
+  /*Decorative Text*/
+  --color-text-decorative: #b16286;
+  /*Logo Background*/
+  --color-logo-bg: #282828;
+}
+@custom-variant dark (&:where(.dark, .dark *));
 body {
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
 }
