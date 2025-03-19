@@ -23,6 +23,9 @@ export async function getListBlogs() {
     return {
       slug: fileName.replace(".mdx", ""),
       title: data.title,
+      banner: data.banner,
+      publicDate: data.publicDate,
+      minsRead: data.minsRead,
     }
   })
   return blogs
