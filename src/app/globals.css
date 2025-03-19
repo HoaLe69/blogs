@@ -1,26 +1,120 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "normalize.css";
 
 @theme {
-  /*Main background*/
-  --color-dark-bg-base: #282828;
-  --color-light-bg-base: #fbf1c7;
-  /*Header background*/
-  --color-dark-header-bg: #3c3836;
-  --color-light-header-bg: #d5c4a1;
-  /*Primary Text*/
-  --color-dark-text-primary: #eddbb2;
-  --color-light-text-primary: #282828;
-  /*Secondary Text*/
-  --color-dark-text-secondary: #a89984;
-  --color-light-text-secondary: #7c6f64;
-  /*Accent Text*/
-  --color-dark-text-emphasis: #fe8019;
+  --bg: #282828;
+  --gray: #928374;
+  --red: #cc241d;
+  --green: #98971a;
+  --yellow: #d79921;
+  --blue: #458588;
+  --purple: #b16286;
+  --aqua: #689d6a;
+  --fg: #ebdbb2;
+  --bg0_h: #1d2021;
+  --bg0: #282828;
+  --bg1: #3c3836;
+  --bg2: #504945;
+  --bg3: #665c54;
+  --bg4: #7c6f64;
+  --fg4: #a89984;
+  --fg3: #bdae93;
+  --fg2: #d5c4a1;
+  --fg1: #ebdbb2;
+  --fg0: #fbf1c7;
+  --orange: #d65d0e;
+  --bg0_s: #32302f;
+
+  /* Light Mode */
+  --bg-light: #fbf1c7;
+  --gray-light: #928374;
+  --red-light: #9d0006;
+  --green-light: #79740e;
+  --yellow-light: #b57614;
+  --blue-light: #076678;
+  --purple-light: #8f3f71;
+  --aqua-light: #427b58;
+  --fg-light: #3c3836;
+  --bg0_h-light: #f9f5d7;
+  --bg0-light: #fbf1c7;
+  --bg1-light: #ebdbb2;
+  --bg2-light: #d5c4a1;
+  --bg3-light: #bdae93;
+  --bg4-light: #a89984;
+  --fg4-light: #7c6f64;
+  --fg3-light: #665c54;
+  --fg2-light: #504945;
+  --fg1-light: #3c3836;
+  --fg0-light: #282828;
+  --orange-light: #af3a03;
+  --bg0_s-light: #f2e5bc;
+
+  /* Light Mode Colors */
+  --color-light-bg-base: var(--bg0_h-light);
+  --color-light-bg-header: var(--fg2);
+  --color-light-text-primary: var(--bg);
+  --color-light-text-secondary: var(--fg4-light);
+  --color-light-text-link: var(--blue);
   --color-light-text-emphasis: #fe8019;
-  /*Decorative Text*/
-  --color-text-decorative: #b16286;
-  /*Logo Background*/
-  --color-logo-bg: #282828;
+  --color-banner-light-secondary-bg: var(--fg2);
+  --color-banner-light-third-bg: var(--fg1);
+  --color-banner-light-gradient-end-bg: var(--bg1-light);
+
+  /* Dark Mode Colors */
+  --color-dark-bg-base: var(--bg);
+  --color-dark-bg-header: var(--bg1);
+  --color-dark-text-primary: oklch(0.872 0.01 258.338) /*ebdbb2 */;
+  --color-dark-text-secondary: var(--fg4);
+  --color-dark-text-link: #83a598;
+  --color-dark-text-emphasis: #fe8019;
+  --color-banner-dark-secondary-bg: var(--fg1-light);
+  --color-banner-dark-third-bg: var(--fg2-light);
+  --color-banner-dark-gradient-end-bg: var(--bg3);
+
+  /* Shared Colors (same in both modes) */
+  --color-text-decorative: (--purple);
+  --color-logo-bg: var(--bg);
+  --color-button-bg-toggle: #fe8019;
+
+  /* Default to Light Mode */
+  --color-bg-base: var(--color-light-bg-base);
+  --color-bg-header: var(--color-light-bg-header);
+  --color-text-primary: var(--color-light-text-primary);
+  --color-text-secondary: var(--color-light-text-secondary);
+  --color-text-link: var(--color-light-text-link);
+  --color-text-emphasis: var(--color-light-text-emphasis);
+  --color-headings: var(--green-light); /* Code */
+  --color-code-bg: var(--bg1-light);
+  --color-code-fg: var(--blue-light);
+
+  /* color banner */
+  --color-banner-secondary-bg: var(--color-banner-light-secondary-bg);
+  --color-banner-third-bg: var(--color-banner-light-third-bg);
+  --color-banner-gradient-end-bg: var(--color-banner-light-gradient-end-bg);
+}
+
+.dark {
+  /* Override for Dark Mode */
+  --color-banner-gradient-end-bg: var(--color-banner-dark-gradient-end-bg);
+  --color-banner-third-bg: var(--color-banner-dark-third-bg);
+  --color-banner-secondary-bg: var(--color-banner-dark-secondary-bg);
+  --color-bg-base: var(--color-dark-bg-base);
+  --color-bg-header: var(--color-dark-bg-header);
+  --color-text-primary: var(--color-dark-text-primary);
+  --color-text-secondary: var(--color-dark-text-secondary);
+  --color-text-link: var(--color-dark-text-link);
+  --color-text-emphasis: var(--color-dark-text-emphasis);
+  --color-code-bg: var(--bg1);
+  --color-code-fg: var(--blue);
+
+  --color-headings: var(--green);
+}
+
+.shiki {
+  margin: 0;
+  padding: 4px;
+  background-color: transparent !important;
 }
 @custom-variant dark (&:where(.dark, .dark *));
 body {

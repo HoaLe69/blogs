@@ -11,7 +11,7 @@ export default function Header() {
   const classActive = "text-light-text-primary! dark:text-dark-text-primary! underline underline-offset-3 decoration-2"
 
   return (
-    <div className="bg-light-header-bg dark:bg-dark-header-bg backdrop-blur-md">
+    <div className="backdrop-blur-md top-0 mt-12  sticky z-[1000]">
       <div className="max-w-2xl mx-auto px-4">
         <header className="flex py-2 items-center">
           <div className="bg-logo-bg flex items-center gap-2 px-2 py-1 rounded-lg text-white">
