@@ -23,8 +23,8 @@ export default function Header() {
               <li className={`${classLinks}  ${pathname == "/" && classActive} decoration-orange-500`}>
                 <Link href="/">Home</Link>
               </li>
-              <li className={`${classLinks} ${pathname == "/about" && classActive} decoration-green-600`}>
-                <Link href="/about">About</Link>
+              <li className={`${classLinks} ${pathname == "/about-le" && classActive} decoration-green-600`}>
+                <Link href="/about-le">About</Link>
               </li>
             </ul>
             <ThemeToggleButton />
