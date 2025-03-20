@@ -10,10 +10,12 @@ interface Props {
 
 export default function MainLayout({ children, slug }: Props) {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header />
       <Banner slug={slug} />
-      <Container>{children}</Container>
+      <div className="flex-1">
+        <Container>{children}</Container>
+      </div>
       <Footer />
     </div>
   )
