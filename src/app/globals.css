@@ -121,3 +121,93 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
 }
+
+.tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.tag-red {
+  background-color: var(--red);
+  color: var(--fg1);
+}
+
+.tag-green {
+  background-color: var(--green);
+  color: var(--fg1);
+}
+
+.tag-yellow {
+  background-color: var(--yellow);
+  color: var(--fg1);
+}
+
+.tag-blue {
+  background-color: var(--blue);
+  color: var(--fg1);
+}
+
+.tag-purple {
+  background-color: var(--purple);
+  color: var(--fg1);
+}
+
+.tag-aqua {
+  background-color: var(--aqua);
+  color: var(--fg1);
+}
+
+.tag-orange {
+  background-color: var(--orange);
+  color: var(--fg1);
+}
+
+.tag-gray {
+  background-color: var(--gray);
+  color: var(--fg1);
+}
+
+/* Light Mode Tags */
+.light-mode .tag-red {
+  background-color: var(--red-light);
+  color: var(--fg-light);
+}
+
+.light-mode .tag-green {
+  background-color: var(--green-light);
+  color: var(--fg-light);
+}
+
+.light-mode .tag-yellow {
+  background-color: var(--yellow-light);
+  color: var(--fg-light);
+}
+
+.light-mode .tag-blue {
+  background-color: var(--blue-light);
+  color: var(--fg-light);
+}
+
+.light-mode .tag-purple {
+  background-color: var(--purple-light);
+  color: var(--fg-light);
+}
+
+.light-mode .tag-aqua {
+  background-color: var(--aqua-light);
+  color: var(--fg-light);
+}
+
+.light-mode .tag-orange {
+  background-color: var(--orange-light);
+  color: var(--fg-light);
+}
+
+.light-mode .tag-gray {
+  background-color: var(--gray);
+  color: var(--fg-light);
+}

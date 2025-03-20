@@ -4,4 +4,5 @@ export type IBlog = {
   banner: string
   publicDate: string
   minsRead: string
+  tag: string
 }

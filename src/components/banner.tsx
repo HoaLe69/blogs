@@ -1,4 +1,5 @@
 import { getMdxFileBySlug } from "@/lib/api"
+import { convertTagName, tags } from "@/lib/const"
 import { Dot } from "lucide-react"
 
 interface Props {
@@ -44,6 +45,9 @@ export default async function Banner({ slug }: Props) {
                 <span>{frontMatter.publicDate}</span>
                 <Dot />
                 <span>{frontMatter.minsRead}</span>
+                {frontMatter?.tag && (
+                  <span className={`tag ${tags[frontMatter.tag]}`}>{convertTagName(frontMatter.tag)}</span>
+                )}
               </div>
             </div>
           </div>

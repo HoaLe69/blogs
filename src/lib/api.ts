@@ -26,6 +26,7 @@ export async function getListBlogs() {
       banner: data.banner,
       publicDate: data.publicDate,
       minsRead: data.minsRead,
+      tag: data.tag,
     }
   })
   return blogs
