@@ -14,10 +14,12 @@ export default function Header() {
     <div className="backdrop-blur-md top-0 mt-12  sticky z-[1000]">
       <div className="max-w-2xl mx-auto px-4">
         <header className="flex py-2 items-center">
-          <div className="bg-logo-bg flex items-center gap-2 px-2 py-1 rounded-lg text-white">
-            <Terminal size={18} />
-            <span className="text-xl font-medium tracking-wider">LeHoa</span>
-          </div>
+          <Link href="/">
+            <div className="flex bg-logo-bg items-center gap-2 px-2 py-1 rounded-lg text-white">
+              <Terminal size={18} />
+              <span className="text-xl font-medium tracking-wider">LeHoa</span>
+            </div>
+          </Link>
           <div className="ml-auto flex items-center gap-4">
             <ul className="flex items-center gap-3">
               <li className={`${classLinks}  ${pathname == "/" && classActive} decoration-orange-500`}>
