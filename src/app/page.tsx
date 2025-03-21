@@ -15,7 +15,7 @@ export default async function Home() {
             Write down your <strong className="text-text-emphasis">Experiences</strong>,{" "}
             <strong className="text-text-emphasis">Thought</strong> <br /> are the best way to learn.
           </h1>
-          <span className="text-text-secondary">That's Why this blogs was born.</span>
+          <span className="text-text-secondary">That&apos;s Why this blogs was born.</span>
         </div>
         <Divider />
         {blogs.length > 0 ? (

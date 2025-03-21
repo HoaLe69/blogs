@@ -22,22 +22,22 @@ function CustomImageCmp({ des, src, alt, width = 1000 / 3, height = 600 / 3 }: C
 export default function Page() {
   return (
     <MainLayout>
-      <h1 className="mb-2!">Hi there, I'm HoaLe 👋</h1>
-      <span>I'm a passionate Full-Stack Developer based on HCM, VietNam.</span>
+      <h1 className="mb-2!">Hi there, I&apos;m HoaLe 👋</h1>
+      <span>I&apos;m a passionate Full-Stack Developer based on HCM, VietNam.</span>
       <article className="prose dark:prose-invert max-w-none">
         <Divider />
         <p>
-          Hey! I'm <span className="text-text-emphasis">Hoa</span>, a passionate Information Technology student and
-          aspiring Software Engineer. I'm currently in my final year at{" "}
-          <span className="text-text-emphasis">Ho Chi Minh City University Of Education</span> and I'm excited to be
-          wrapping up my degree this summer.
+          Hey! I&apos;m <span className="text-text-emphasis">Hoa</span>, a passionate Information Technology student and
+          aspiring Software Engineer. I&apos;m currently in my final year at{" "}
+          <span className="text-text-emphasis">Ho Chi Minh City University Of Education</span> and I&apos;m excited to
+          be wrapping up my degree this summer.
         </p>
         <p>
-          I've always been fascinated by technology --- How it works, how it evolves, and how it shapes our world. From
-          my first computer programming class to diving deep into algorithms and data structures, I knew IT was the
-          field for me. But beyond just the academic side, I've always been curious about learing new tools, programming
-          languages, and latest tech trends. This blog is my way of documenting and sharing what I've learned, as well
-          as helping others on their own tech journeys.
+          I&apos;ve always been fascinated by technology --- How it works, how it evolves, and how it shapes our world.
+          From my first computer programming class to diving deep into algorithms and data structures, I knew IT was the
+          field for me. But beyond just the academic side, I&apos;ve always been curious about learing new tools,
+          programming languages, and latest tech trends. This blog is my way of documenting and sharing what I&apos;ve
+          learned, as well as helping others on their own tech journeys.
         </p>
         <CustomImageCmp
           src="/images/author/home.jpg"
@@ -48,7 +48,7 @@ export default function Page() {
           This blog is mix of everything I love : <span className="text-text-emphasis">technology</span>,{" "}
           <span className="text-text-emphasis">learning</span>, and living as a student. I started this blog to share my
           experiences and insights as I navigate the world of Information Technology, particularly as a student who’s
-          about to graduate and step into the professional world. Here, you’ll find content related to:
+          about to graduate and step into the professional world. Here, you&apos;ll find content related to:
         </p>
         <ul>
           <li>
@@ -64,8 +64,8 @@ export default function Page() {
             development tools.
           </li>
           <li>
-            <strong>Learning New Technologies</strong> – I’ll share how I approach learning new tech, from frameworks to
-            tools and emerging technologies.
+            <strong>Learning New Technologies</strong> – I&apos;ll share how I approach learning new tech, from
+            frameworks to tools and emerging technologies.
           </li>
           <li>
             <strong>Student Life & Challenges</strong> – A look at balancing university life with the pressures of
@@ -80,8 +80,8 @@ export default function Page() {
         As a student, I know how overwhelming the tech world can be, and I want this blog to be a resource that makes
         things easier to understand, break down complex concepts, and inspire you to learn more.
         <p>
-          I believe everyone's got a story worth sharing, and I hope this blog inspires to notice the little things that
-          make life special.
+          I believe everyone&apos;s got a story worth sharing, and I hope this blog inspires to notice the little things
+          that make life special.
         </p>
       </article>
     </MainLayout>
