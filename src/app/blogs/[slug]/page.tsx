@@ -7,6 +7,19 @@ import { MDXCustomLinks, MDXCustomBoldText, MDXCustomCode, MDXCustomPre } from "
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import BannerDetailBlog from "@/components/banner-detail-blog"
+import { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = await getMdxFileBySlug(slug)
+
+  // add more information for strong SEO in the future
+  return {
+    title: post?.data.title,
+    description: post?.data.description,
+    keywords: post?.data.tag,
+  }
+}
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
