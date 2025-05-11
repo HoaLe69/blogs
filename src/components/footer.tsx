@@ -1,4 +1,3 @@
-import Container from "./container"
 import { Copyright, Github, Linkedin, Instagram } from "lucide-react"
 import Link from "next/link"
 
