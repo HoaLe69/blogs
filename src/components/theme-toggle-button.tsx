@@ -8,8 +8,13 @@ export default function ThemeToggleButton() {
 
   useEffect(() => {
     if (typeof localStorage == undefined) return
-    if (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark")
+
+    if (!("theme" in localStorage)) {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setTheme("dark")
+      } else {
+        setTheme("light")
+      }
     }
     if (localStorage.theme) setTheme(localStorage.theme)
   }, [])
