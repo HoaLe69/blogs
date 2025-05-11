@@ -1,21 +1,25 @@
-import { getListBlogs } from "@/lib/api"
-import type { IBlog } from "@/lib/types"
-import MainLayout from "@/components/layout"
+import { getListPost } from "@/lib/api"
+import type { IPost } from "@/lib/types"
 import Divider from "@/components/divider"
 import Card from "@/components/card"
 import { Newspaper } from "lucide-react"
+import Container from "@/components/container"
+import Header from "@/components/header"
+import Banner from "@/components/banner"
+import Footer from "@/components/footer"
 
 export default async function Home() {
-  const blogs: IBlog[] = await getListBlogs()
+  const blogs: IPost[] = await getListPost()
   return (
-    <main>
-      <MainLayout>
+    <>
+      <Header />
+      <Banner />
+      <Container>
         <div className="mb-9">
-          <h1 className="font-bold text-3xl! mb-2!">
+          <h1 className="font-bold text-3xl mb-2">
             Write down your <strong className="text-text-emphasis">Experiences</strong>,{" "}
             <strong className="text-text-emphasis">Thought</strong> <br /> are the best way to learn.
           </h1>
-          <span className="text-text-secondary">That&apos;s Why this blogs was born.</span>
         </div>
         <Divider />
         {blogs.length > 0 ? (
@@ -30,7 +34,8 @@ export default async function Home() {
             <span className="text-text-secondary font-medium mt-4">The author has no posts yet.</span>
           </div>
         )}
-      </MainLayout>
-    </main>
+      </Container>
+      <Footer />
+    </>
   )
 }

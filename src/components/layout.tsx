@@ -6,13 +6,14 @@ import Footer from "./footer"
 interface Props {
   children: React.ReactNode
   slug?: string
+  typeOfBlog?: string
 }
 
-export default function MainLayout({ children, slug }: Props) {
+export default function MainLayout({ typeOfBlog, children, slug }: Props) {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <Banner slug={slug} />
+      <Banner slug={slug} typeOfBlog={typeOfBlog} />
       <div className="flex-1">
         <Container>{children}</Container>
       </div>

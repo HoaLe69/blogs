@@ -23,7 +23,7 @@ export default function Header() {
           <div className="ml-auto flex items-center gap-4">
             <ul className="flex items-center gap-3">
               <li className={`${classLinks}  ${pathname == "/" && classActive} decoration-orange-500`}>
-                <Link href="/">Home</Link>
+                <Link href="/">Blogs</Link>
               </li>
               <li className={`${classLinks} ${pathname == "/about-le" && classActive} decoration-green-600`}>
                 <Link href="/about-le">About</Link>

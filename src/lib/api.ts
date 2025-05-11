@@ -2,8 +2,10 @@ import path from "path"
 import fs from "fs"
 import matter from "gray-matter"
 
+const BLOG_PATH = "src/blogs"
+
 function blogsDirectory() {
-  const blogsPath = path.join(process.cwd(), "src/blogs")
+  const blogsPath = path.join(process.cwd(), BLOG_PATH)
   return blogsPath
 }
 
@@ -13,7 +15,7 @@ function readAndParseMarkdown(filePath: string) {
   return { data, content }
 }
 
-export async function getListBlogs() {
+export async function getListPost() {
   const paths = blogsDirectory()
   const fileNames = fs.readdirSync(paths)
 
@@ -34,7 +36,7 @@ export async function getListBlogs() {
 
 export async function getMdxFileBySlug(slug: string) {
   try {
-    const filePath = path.join(process.cwd(), "src/blogs", `${slug}.mdx`)
+    const filePath = path.join(process.cwd(), BLOG_PATH, `${slug}.mdx`)
     if (!fs.existsSync(filePath)) {
       return null
     }

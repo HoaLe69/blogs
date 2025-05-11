@@ -92,6 +92,19 @@
   --color-banner-secondary-bg: var(--color-banner-light-secondary-bg);
   --color-banner-third-bg: var(--color-banner-light-third-bg);
   --color-banner-gradient-end-bg: var(--color-banner-light-gradient-end-bg);
+
+  /* Animation areas */
+  --animate-fade-in: fade-in 0.3s ease-in-out forwards;
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 }
 
 .dark {
@@ -117,9 +130,17 @@
   background-color: transparent !important;
 }
 @custom-variant dark (&:where(.dark, .dark *));
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   line-height: 1.4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body #container {
+  flex: 1;
 }
 
 .tag {

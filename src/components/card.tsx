@@ -1,34 +1,35 @@
-import Image from "next/image"
 import Link from "next/link"
-import { Dot } from "lucide-react"
+import { Dot, MoveRight } from "lucide-react"
 import { tags } from "@/lib/const"
 
 interface Props {
   title: string
-  banner: string
+  banner?: string
   slug: string
   publicDate: string
-  minsRead: string
+  minsRead?: string
   tag?: string
 }
 
-export default function Card({ tag, title, banner, slug, publicDate, minsRead }: Props) {
+export default function Card(props: Props) {
+  const { title, slug, publicDate, minsRead, tag } = props
+
   return (
-    <div className="md:w-[calc(50%-0.5rem)] md:first:w-full w-full mb-8">
-      {banner && (
-        <div className="w-full h-52 rounded-xl overflow-hidden">
-          <Image className="w-full h-full object-cover" width={640} height={204} src={banner} alt={title} />
-        </div>
-      )}
-      <Link key={slug} href={`/h/${slug}`}>
-        <h2 className="text-xl font-bold mt-2 mb-1 hover:underline truncate">{title}</h2>
-      </Link>
+    <div className="w-full mb-8 group">
+      <h2 className="text-xl font-medium mt-2 mb-1 truncate text-wrap">{title}</h2>
       <div className="flex items-center text-text-secondary">
         <span>{publicDate}</span>
         <Dot />
         <span>{minsRead}</span>
         {tag && <span className={`tag ${tags[tag]}`}>{tag}</span>}
       </div>
+      <Link
+        href={`/blogs/${slug}`}
+        className="opacity-100 lg:opacity-0 flex md:hover:cursor-pointer md:hover:underline md:underline-offset-4 md:decoration-2 md:group-hover:animate-fade-in items-center gap-1 mt-1 text-text-secondary"
+      >
+        <MoveRight />
+        <span className="text-text-secondary">Read more</span>
+      </Link>
     </div>
   )
 }
