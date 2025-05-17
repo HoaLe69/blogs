@@ -1,6 +1,7 @@
 export const tags: Record<string, string> = {
   //yellow
   tips: "tag-yellow",
+  life: "tag-yellow",
   tricks: "tag-yellow",
   learning: "tag-yellow",
   productivity: "tag-yellow",
