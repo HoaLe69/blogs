@@ -9,11 +9,11 @@ interface Props {
   typeOfBlog?: string
 }
 
-export default function MainLayout({ typeOfBlog, children, slug }: Props) {
+export default function MainLayout({ children }: Props) {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <Banner slug={slug} typeOfBlog={typeOfBlog} />
+      <Banner />
       <div className="flex-1">
         <Container>{children}</Container>
       </div>
