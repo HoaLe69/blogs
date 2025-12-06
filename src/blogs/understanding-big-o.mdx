@@ -1,0 +1,103 @@
+---
+title: "Understanding Big O Notation: A Beginner's Guide"
+description: "Learn the fundamentals of Big O notation and how to analyze algorithm complexity with practical examples."
+publicDate: "2025-12-03"
+tag: "tutorial"
+---
+
+# Understanding Big O Notation
+
+Big O notation is one of the most important concepts in computer science. It helps us understand how algorithms perform as input size grows.
+
+## What is Big O?
+
+Big O notation describes the **worst-case scenario** of an algorithm's time or space complexity. It answers the question: "How does performance change as input size increases?"
+
+## Common Time Complexities
+
+### O(1) - Constant Time
+
+The algorithm takes the same time regardless of input size.
+
+```javascript
+function getFirstElement(array) {
+  return array[0]; // Always one operation
+}
+```
+
+### O(n) - Linear Time
+
+Time grows proportionally with input size.
+
+```javascript
+function findElement(array, target) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) return i;
+  }
+  return -1;
+}
+```
+
+### O(n²) - Quadratic Time
+
+Common with nested loops.
+
+```javascript
+function bubbleSort(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length - 1; j++) {
+      if (array[j] > array[j + 1]) {
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+      }
+    }
+  }
+  return array;
+}
+```
+
+### O(log n) - Logarithmic Time
+
+Divides the problem in half each iteration (like binary search).
+
+```javascript
+function binarySearch(sortedArray, target) {
+  let left = 0;
+  let right = sortedArray.length - 1;
+  
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    
+    if (sortedArray[mid] === target) return mid;
+    if (sortedArray[mid] < target) left = mid + 1;
+    else right = mid - 1;
+  }
+  
+  return -1;
+}
+```
+
+## Quick Reference
+
+| Complexity | Name | Example |
+|------------|------|---------|
+| O(1) | Constant | Array access |
+| O(log n) | Logarithmic | Binary search |
+| O(n) | Linear | Simple loop |
+| O(n log n) | Linearithmic | Merge sort |
+| O(n²) | Quadratic | Nested loops |
+| O(2ⁿ) | Exponential | Recursive fibonacci |
+
+## Key Takeaways
+
+1. **Focus on growth rate**, not exact operations
+2. **Drop constants**: O(2n) becomes O(n)
+3. **Keep the dominant term**: O(n² + n) becomes O(n²)
+4. **Consider worst case** unless specified otherwise
+
+## Practice Makes Perfect
+
+Understanding Big O takes practice. Try analyzing the complexity of algorithms you write, and soon it will become second nature!
+
+---
+
+*Want to dive deeper? Check out my upcoming post on space complexity and optimization techniques.*
