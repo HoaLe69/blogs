@@ -41,7 +41,7 @@ export default function Page() {
           <p>
             I&apos;ve always been fascinated by technology --- How it works, how it evolves, and how it shapes our
             world. From my first computer programming class to diving deep into algorithms and data structures, I knew
-            IT was the field for me. But beyond just the academic side, I&apos;ve always been curious about learing new
+            IT was the field for me. But beyond just the academic side, I&apos;ve always been curious about learning new
             tools, programming languages, and latest tech trends. This blog is my way of documenting and sharing what
             I&apos;ve learned, as well as helping others on their own tech journeys.
           </p>
@@ -63,7 +63,7 @@ export default function Page() {
             </li>
             <li>
               <strong>Programming Tutorials </strong>– Step-by-step guides on coding in various languages, including
-              [list some languages you focus on, e.g., Python, Java, C++].
+              Python, JavaScript, TypeScript, and C++.
             </li>
             <li>
               <strong>Tech Tips & Tricks </strong>– Helpful hints on software development, debugging, and using
