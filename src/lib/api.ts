@@ -1,6 +1,7 @@
 import path from "path"
 import fs from "fs"
 import matter from "gray-matter"
+import readingTime from "reading-time"
 
 const BLOG_PATH = "src/blogs"
 
@@ -21,13 +22,15 @@ export async function getListPost() {
 
   const blogs = fileNames.map(fileName => {
     const filePath = path.join(paths, fileName)
-    const { data } = readAndParseMarkdown(filePath)
+    const { data, content } = readAndParseMarkdown(filePath)
+    const stats = readingTime(content)
+
     return {
       slug: fileName.replace(".mdx", ""),
       title: data.title,
       banner: data.banner,
       publicDate: data.publicDate,
-      minsRead: data.minsRead,
+      minsRead: stats.text, // Auto-calculated reading time
       tag: data.tag,
     }
   })
@@ -40,7 +43,14 @@ export async function getMdxFileBySlug(slug: string) {
     if (!fs.existsSync(filePath)) {
       return null
     }
-    return readAndParseMarkdown(filePath)
+    const result = readAndParseMarkdown(filePath)
+    const stats = readingTime(result.content)
+
+    return {
+      ...result,
+      readingTime: stats.text,
+      wordCount: stats.words,
+    }
   } catch (error) {
     console.log(error)
   }
