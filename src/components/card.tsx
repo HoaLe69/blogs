@@ -4,6 +4,7 @@ import { tags } from "@/lib/const"
 
 interface Props {
   title: string
+  excerpt?: string
   banner?: string
   slug: string
   publicDate: string
@@ -12,11 +13,12 @@ interface Props {
 }
 
 export default function Card(props: Props) {
-  const { title, slug, publicDate, minsRead, tag } = props
+  const { title, excerpt, slug, publicDate, minsRead, tag } = props
 
   return (
     <div className="w-full mb-8 group">
       <h2 className="text-xl font-medium mt-2 mb-1 truncate text-wrap">{title}</h2>
+      {excerpt && <p className="mb-2 max-w-2xl text-text-secondary">{excerpt}</p>}
       <div className="flex items-center text-text-secondary">
         <span>{publicDate}</span>
         <Dot />

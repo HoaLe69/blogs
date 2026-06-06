@@ -1,4 +1,4 @@
-import { getMdxFileBySlug } from "@/lib/api"
+import { getAllPostSlugs, getMdxFileBySlug } from "@/lib/api"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import Image from "next/image"
 import Container from "@/components/container"
@@ -54,6 +54,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       creator: "@leehoa",
     },
   }
+}
+
+export async function generateStaticParams() {
+  const slugs = await getAllPostSlugs()
+  return slugs.map(slug => ({ slug }))
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {

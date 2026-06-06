@@ -30,7 +30,7 @@ export async function GET() {
       <link>${siteUrl}/blogs/${blog.slug}</link>
       <guid isPermaLink="true">${siteUrl}/blogs/${blog.slug}</guid>
       <pubDate>${new Date(blog.publicDate).toUTCString()}</pubDate>
-      <description>${escapeXml(blog.title)}</description>
+      <description>${escapeXml(blog.excerpt)}</description>
       ${blog.tag ? `<category>${escapeXml(blog.tag)}</category>` : ""}
     </item>`
             )
