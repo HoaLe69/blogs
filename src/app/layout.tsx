@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
-import { Space_Grotesk } from "next/font/google"
+import { Bricolage_Grotesque } from "next/font/google"
 import "./globals.css"
 
-const spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = Bricolage_Grotesque({
   variable: "--font-space-grotesk",
-  subsets: ["latin"],
+  subsets: ["vietnamese"],
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
