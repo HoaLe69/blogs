@@ -8,6 +8,8 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import BannerDetailBlog from "@/components/banner-detail-blog"
 import ReadingProgress from "@/components/reading-progress"
+import HeartButton from "@/components/heart-button"
+import Comments from "@/components/comments"
 import { Metadata } from "next"
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -103,6 +105,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <article className="prose lg:prose-lg dark:prose-invert py-8 prose-hr:mt-4 prose-hr:mb-3 max-w-none prose-headings:mt-4 prose-headings:mb-2 prose-headings:text-headings">
           <MDXRemote source={content} components={components} />
         </article>
+
+        {/* Like button */}
+        <div className="flex items-center gap-4 mt-8 border-t border-text-secondary/20 pt-6">
+          <HeartButton slug={slug} />
+          <span className="text-sm text-text-secondary">Like this post</span>
+        </div>
+
+        {/* Comments */}
+        <Comments slug={slug} />
       </Container>
       <Footer />
     </main>

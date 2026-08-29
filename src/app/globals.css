@@ -232,3 +232,37 @@ body #container {
   background-color: var(--gray);
   color: var(--fg-light);
 }
+
+/* Heart button heartbeat animation */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+.heartbeat-once {
+  animation: heartbeat 0.8s ease-in-out 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heartbeat,
+  .heartbeat-once {
+    animation: none;
+  }
+}
