@@ -1,11 +1,24 @@
 "use client"
+import { useEffect, useState } from "react"
 import { Terminal } from "lucide-react"
 import ThemeToggleButton from "./theme-toggle-button"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { isStreaksAuthed } from "@/lib/streaks-auth"
 
 export default function Header() {
   const pathname = usePathname()
+  const [showStreaks, setShowStreaks] = useState(false)
+
+  useEffect(() => {
+    // Only reveal the Streaks link after the password gate has been passed.
+    const check = () => setShowStreaks(isStreaksAuthed())
+    check()
+    // Re-check on route change (each page navigation re-mounts Header).
+    window.addEventListener("storage", check)
+    return () => window.removeEventListener("storage", check)
+  }, [])
+
   const classLinks =
     "tracking-wide hover:text-light-text-primary hover:dark:text-dark-text-primary dark:text-dark-text-secondary text-light-text-secondary hover:underline underline-offset-3 decoration-2"
   const classActive = "text-light-text-primary! dark:text-dark-text-primary! underline underline-offset-3 decoration-2"
@@ -25,6 +38,11 @@ export default function Header() {
               <li className={`${classLinks}  ${pathname == "/" && classActive} decoration-orange-500`}>
                 <Link href="/">Blogs</Link>
               </li>
+              {showStreaks && (
+                <li className={`${classLinks} ${pathname == "/streaks" && classActive} decoration-purple-600`}>
+                  <Link href="/streaks">Streaks</Link>
+                </li>
+              )}
               <li className={`${classLinks} ${pathname == "/about-le" && classActive} decoration-green-600`}>
                 <Link href="/about-le">About</Link>
               </li>

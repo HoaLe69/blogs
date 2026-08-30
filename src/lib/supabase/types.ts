@@ -42,6 +42,21 @@ export interface Database {
         }
         Relationships: []
       }
+      study_hours: {
+        Row: {
+          date: string
+          total_hours: number
+        }
+        Insert: {
+          date: string
+          total_hours?: number
+        }
+        Update: {
+          date?: string
+          total_hours?: number
+        }
+        Relationships: []
+      }
     }
     Views: Record<string, never>
     Functions: Record<string, never>
