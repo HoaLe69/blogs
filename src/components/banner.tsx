@@ -5,7 +5,7 @@ export default async function Banner() {
     <div className="relative overflow-clip">
       <div
         style={{
-          background: "linear-gradient(to bottom, var(--color-bg-base), var(--color-banner-gradient-end-bg)",
+          background: "linear-gradient(to bottom, var(--color-bg-base), var(--color-banner-gradient-end-bg))",
         }}
         className="flex flex-col items-center justify-end w-full"
       >

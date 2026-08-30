@@ -54,9 +54,9 @@
   --color-light-bg-base: var(--bg0_h-light);
   --color-light-bg-header: var(--fg2);
   --color-light-text-primary: var(--bg);
-  --color-light-text-secondary: var(--fg4-light);
+  --color-light-text-secondary: var(--fg3-light);
   --color-light-text-link: var(--blue);
-  --color-light-text-emphasis: #fe8019;
+  --color-light-text-emphasis: #af3a03;
   --color-banner-light-secondary-bg: var(--fg2);
   --color-banner-light-third-bg: var(--fg1);
   --color-banner-light-gradient-end-bg: var(--bg1-light);
@@ -65,7 +65,7 @@
   --color-dark-bg-base: var(--bg);
   --color-dark-bg-header: var(--bg1);
   --color-dark-text-primary: oklch(0.872 0.01 258.338) /*ebdbb2 */;
-  --color-dark-text-secondary: var(--fg4);
+  --color-dark-text-secondary: var(--fg3);
   --color-dark-text-link: #83a598;
   --color-dark-text-emphasis: #fe8019;
   --color-banner-dark-secondary-bg: var(--fg1-light);
@@ -119,7 +119,7 @@
   --color-text-link: var(--color-dark-text-link);
   --color-text-emphasis: var(--color-dark-text-emphasis);
   --color-code-bg: var(--bg1);
-  --color-code-fg: var(--blue);
+  --color-code-fg: #93bbcc;
 
   --color-headings: var(--green);
 }
@@ -132,8 +132,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  font-family: "Space Grotesk", sans-serif;
-  line-height: 1.4;
+  font-family: "Bricolage Grotesque", var(--font-bricolage), sans-serif;
+  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -146,8 +146,8 @@ body #container {
 .tag {
   display: inline-block;
   margin-left: 8px;
-  padding: 3px 10px;
-  font-size: 12px;
+  padding: 4px 11px;
+  font-size: 13px;
   font-weight: bold;
   border-radius: 20px;
 }

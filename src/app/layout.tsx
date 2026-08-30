@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import { Bricolage_Grotesque } from "next/font/google"
 import "./globals.css"
 
-const spaceGrotesk = Bricolage_Grotesque({
-  variable: "--font-space-grotesk",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["vietnamese"],
 })
 
@@ -74,7 +74,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} antialiased transition-all bg-bg-base text-text-primary`}>
+      <body className={`${bricolage.variable} antialiased transition-all bg-bg-base text-text-primary`}>
         {children}
       </body>
     </html>

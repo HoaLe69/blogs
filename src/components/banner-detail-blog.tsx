@@ -14,7 +14,7 @@ export default function BannerDetailBlog(props: Props) {
     <div className="relative overflow-clip">
       <div
         style={{
-          background: "linear-gradient(to bottom, var(--color-bg-base), var(--color-banner-gradient-end-bg)",
+          background: "linear-gradient(to bottom, var(--color-bg-base), var(--color-banner-gradient-end-bg))",
         }}
         className="relative flex flex-col items-center justify-end w-full"
       >
