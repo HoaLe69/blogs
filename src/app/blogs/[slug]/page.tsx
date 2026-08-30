@@ -1,5 +1,6 @@
 import { getAllPostSlugs, getMdxFileBySlug } from "@/lib/api"
 import { MDXRemote } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 import Image from "next/image"
 import Container from "@/components/container"
 import { notFound } from "next/navigation"
@@ -102,8 +103,16 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <BannerDetailBlog {...data} minsRead={readingTime} />
       <Container>
         {_renderBlogBanner()}
-        <article className="prose lg:prose-lg dark:prose-invert py-8 prose-hr:mt-4 prose-hr:mb-3 max-w-none prose-headings:mt-4 prose-headings:mb-2 prose-headings:text-headings">
-          <MDXRemote source={content} components={components} />
+        <article className="prose dark:prose-invert py-8 prose-hr:mt-4 prose-hr:mb-3 max-w-none prose-headings:mt-4 prose-headings:mb-2 prose-headings:text-headings">
+          <MDXRemote
+            source={content}
+            components={components}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+              },
+            }}
+          />
         </article>
 
         {/* Like button */}

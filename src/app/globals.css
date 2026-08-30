@@ -266,3 +266,30 @@ body #container {
     animation: none;
   }
 }
+
+/* GFM Table styling */
+.prose table {
+  width: 100%;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+}
+
+.prose thead {
+  border-bottom: 2px solid var(--bg2);
+}
+
+.prose th {
+  padding: 0.625rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.prose td {
+  padding: 0.5rem 1rem;
+  border-top: 1px solid var(--bg2);
+}
+
+.prose tbody tr:hover {
+  background: var(--bg1);
+}
