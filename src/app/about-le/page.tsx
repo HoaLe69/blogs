@@ -30,7 +30,7 @@ export default function Page() {
       <Container>
         <h1 className="mb-2!">Hi there, I&apos;m HoaLe 👋</h1>
         <span className="text-text-secondary">I&apos;m a passionate Full-Stack Developer based on HCM, VietNam.</span>
-        <article className="prose lg:prose-lg dark:prose-invert max-w-none">
+        <article className="prose dark:prose-invert max-w-none">
           <Divider />
           <p>
             Hey! I&apos;m <span className="text-text-emphasis">Hoa</span>, a passionate Information Technology student

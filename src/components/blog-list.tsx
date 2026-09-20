@@ -24,7 +24,9 @@ export default function BlogList({ initialBlogs }: BlogListProps) {
         const lowercaseQuery = query.toLowerCase()
         const filtered = initialBlogs.filter(
             blog =>
-                blog.title.toLowerCase().includes(lowercaseQuery) || blog.tag?.toLowerCase().includes(lowercaseQuery)
+                blog.title.toLowerCase().includes(lowercaseQuery) ||
+                blog.excerpt.toLowerCase().includes(lowercaseQuery) ||
+                blog.tag?.toLowerCase().includes(lowercaseQuery)
         )
         setFilteredBlogs(filtered)
     }

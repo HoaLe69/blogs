@@ -1,5 +1,6 @@
-import { getMdxFileBySlug } from "@/lib/api"
+import { getAllPostSlugs, getMdxFileBySlug } from "@/lib/api"
 import { MDXRemote } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 import Image from "next/image"
 import Container from "@/components/container"
 import { notFound } from "next/navigation"
@@ -8,6 +9,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import BannerDetailBlog from "@/components/banner-detail-blog"
 import ReadingProgress from "@/components/reading-progress"
+import Comments from "@/components/comments"
 import { Metadata } from "next"
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -56,6 +58,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
+export async function generateStaticParams() {
+  const slugs = await getAllPostSlugs()
+  return slugs.map(slug => ({ slug }))
+}
+
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
 
@@ -95,9 +102,22 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <BannerDetailBlog {...data} minsRead={readingTime} />
       <Container>
         {_renderBlogBanner()}
-        <article className="prose lg:prose-lg dark:prose-invert py-8 prose-hr:mt-4 prose-hr:mb-3 max-w-none prose-headings:mt-4 prose-headings:mb-2 prose-headings:text-headings">
-          <MDXRemote source={content} components={components} />
+        <article className="prose dark:prose-invert py-8 prose-hr:mt-4 prose-hr:mb-3 max-w-none prose-headings:mt-4 prose-headings:mb-2 prose-headings:text-headings">
+          <MDXRemote
+            source={content}
+            components={components}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+              },
+            }}
+          />
         </article>
+
+        {/* Floating heart (right-side pendant) */}
+
+        {/* Comments */}
+        <Comments slug={slug} />
       </Container>
       <Footer />
     </main>

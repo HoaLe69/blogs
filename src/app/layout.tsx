@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
-import { Space_Grotesk } from "next/font/google"
+import { Bricolage_Grotesque } from "next/font/google"
 import "./globals.css"
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["vietnamese"],
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
@@ -74,7 +74,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} antialiased transition-all bg-bg-base text-text-primary`}>
+      <body className={`${bricolage.variable} antialiased transition-all bg-bg-base text-text-primary`}>
         {children}
       </body>
     </html>
