@@ -9,7 +9,6 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import BannerDetailBlog from "@/components/banner-detail-blog"
 import ReadingProgress from "@/components/reading-progress"
-import HeartButton from "@/components/heart-button"
 import Comments from "@/components/comments"
 import { Metadata } from "next"
 
@@ -115,11 +114,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           />
         </article>
 
-        {/* Like button */}
-        <div className="flex items-center gap-4 mt-8 border-t border-text-secondary/20 pt-6">
-          <HeartButton slug={slug} />
-          <span className="text-sm text-text-secondary">Like this post</span>
-        </div>
+        {/* Floating heart (right-side pendant) */}
 
         {/* Comments */}
         <Comments slug={slug} />

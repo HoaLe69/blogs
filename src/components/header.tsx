@@ -4,21 +4,10 @@ import { Terminal, Menu, X } from "lucide-react"
 import ThemeToggleButton from "./theme-toggle-button"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { isStreaksAuthed } from "@/lib/streaks-auth"
 
 export default function Header() {
   const pathname = usePathname()
-  const [showStreaks, setShowStreaks] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    // Only reveal the Streaks link after the password gate has been passed.
-    const check = () => setShowStreaks(isStreaksAuthed())
-    check()
-    // Re-check on route change (each page navigation re-mounts Header).
-    window.addEventListener("storage", check)
-    return () => window.removeEventListener("storage", check)
-  }, [])
 
   // Close menu on route change
   useEffect(() => {
@@ -30,6 +19,39 @@ export default function Header() {
   const classLinks =
     "tracking-wide hover:text-light-text-primary hover:dark:text-dark-text-primary dark:text-dark-text-secondary text-light-text-secondary hover:underline underline-offset-3 decoration-2"
   const classActive = "text-light-text-primary! dark:text-dark-text-primary! underline underline-offset-3 decoration-2"
+
+  const menuLinks = [
+    {
+      href: "/",
+      name: "Blogs",
+      activeColorClass:  "decoration-orange-500",
+      target: "_self"
+    },
+    // {
+    //   href: "/streaks",
+    //   name: "Streaks",
+    //   activeColorClass:  "decoration-purple-600",
+    //   target: "self"
+    // },
+    {
+      href: "/about-le",
+      name: "About",
+      activeColorClass:  "decoration-green-600",
+      target: "_self"
+    },
+    {
+      href: "https://links.hoalee.life",
+      name: "Links",
+      activeColorClass: "",
+      target: "_blank"
+    },
+    {
+      href: "https://portfolio.hoalee.life",
+      name: "Works",
+      activeColorClass: "",
+      target: "_blank"
+    }
+  ]
 
   return (
     <div className="backdrop-blur-md top-0 mt-12 sticky z-[1000]">
@@ -45,17 +67,15 @@ export default function Header() {
           {/* Desktop nav */}
           <div className="ml-auto flex items-center gap-4">
             <ul className="hidden md:flex items-center gap-3">
-              <li className={`${classLinks} ${pathname == "/" && classActive} decoration-orange-500`}>
-                <Link href="/">Blogs</Link>
-              </li>
-              {showStreaks && (
-                <li className={`${classLinks} ${pathname == "/streaks" && classActive} decoration-purple-600`}>
-                  <Link href="/streaks">Streaks</Link>
-                </li>
-              )}
-              <li className={`${classLinks} ${pathname == "/about-le" && classActive} decoration-green-600`}>
-                <Link href="/about-le">About</Link>
-              </li>
+              {
+                menuLinks.map(el => {
+                  return (
+                    <li key={el.name} className={`${classLinks} ${pathname == el.href && classActive}  ${el.activeColorClass}`}>
+                      <Link target={el.target} href={el.href}>{el.name}</Link>
+                    </li>
+                  )
+                })
+              }
             </ul>
             <div className="hidden md:block">
               <ThemeToggleButton />
@@ -77,29 +97,18 @@ export default function Header() {
       {menuOpen && (
         <div className="md:hidden border-t border-text-secondary/10 bg-bg-base/95 backdrop-blur-md">
           <nav className="max-w-2xl mx-auto px-4 py-4 flex flex-col gap-3">
-            <Link
-              href="/"
-              className={`${classLinks} ${pathname == "/" && classActive} decoration-orange-500 py-1`}
-              onClick={closeMenu}
-            >
-              Blogs
-            </Link>
-            {showStreaks && (
-              <Link
-                href="/streaks"
-                className={`${classLinks} ${pathname == "/streaks" && classActive} decoration-purple-600 py-1`}
-                onClick={closeMenu}
-              >
-                Streaks
-              </Link>
-            )}
-            <Link
-              href="/about-le"
-              className={`${classLinks} ${pathname == "/about-le" && classActive} decoration-green-600 py-1`}
-              onClick={closeMenu}
-            >
-              About
-            </Link>
+            {
+              menuLinks.map(el => (
+                <Link key={el.name} 
+                      target={el.target}
+                      href={el.href}
+                      className={`${classLinks} ${pathname==el.href && classActive} ${el.activeColorClass} py-1`}
+                      onClick={closeMenu}
+                >
+                  {el.name}
+                </Link>
+              ))
+            }
             <div className="pt-2 border-t border-text-secondary/10">
               <ThemeToggleButton />
             </div>

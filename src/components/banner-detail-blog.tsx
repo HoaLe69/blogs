@@ -11,7 +11,7 @@ export default function BannerDetailBlog(props: Props) {
   const { title, publicDate, minsRead, tag } = props
 
   return (
-    <div className="relative overflow-clip">
+    <div id="blog-banner" className="relative overflow-clip">
       <div
         style={{
           background: "linear-gradient(to bottom, var(--color-bg-base), var(--color-banner-gradient-end-bg))",

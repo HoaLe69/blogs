@@ -69,11 +69,13 @@ export default function Comments({ slug }: Props) {
     setSubmitting(true)
     setError("")
 
-    const { error: insertError } = await supabase.from("comments").insert({
+    const payload = {
       post_slug: slug,
       name: name.trim(),
       content: content.trim(),
-    })
+      created_at: new Date().toISOString()
+    }
+    const { error: insertError } = await supabase.from("comments").insert(payload)
 
     if (insertError) {
       setError("Failed to post comment. Please try again.")
@@ -85,6 +87,7 @@ export default function Comments({ slug }: Props) {
     setName("")
     setContent("")
     setSubmitting(false)
+    setComments(pre => [...pre, {...payload, id: Date.now().toString() }])
   }, [slug, name, content])
 
   return (
@@ -115,7 +118,7 @@ export default function Comments({ slug }: Props) {
         <button
           type="submit"
           disabled={submitting}
-          className="rounded-lg bg-green px-6 py-2 text-sm font-medium text-bg0 hover:opacity-90 transition-opacity disabled:opacity-50"
+          className="bg-amber-300 hover:bg-amber-400 hover:opacity-90 text-stone-900 dark:bg-amber-400 dark:hover:bg-amber-300 dark:text-stone-950 rounded-lg px-6 py-2 text-sm font-medium text-bg0 transition-opacity disabled:opacity-50"
         >
           {submitting ? "Posting..." : "Post Comment"}
         </button>

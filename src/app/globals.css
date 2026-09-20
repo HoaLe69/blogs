@@ -262,9 +262,72 @@ body #container {
 
 @media (prefers-reduced-motion: reduce) {
   .heartbeat,
-  .heartbeat-once {
+  .heartbeat-once,
+  .animate-thread-grow,
+  .animate-heart-drop,
+  .animate-heartbeat-float {
     animation: none;
   }
+}
+
+/* Floating heart — falls from the banner into place */
+@keyframes heart-drop {
+  0% {
+    transform: translate(-50%, calc(-50% - 55vh));
+    opacity: 0;
+  }
+  60% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-50%, calc(-50% - 12px));
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.animate-heart-drop {
+  animation: heart-drop 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Thread stretches out from the banner */
+@keyframes thread-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.animate-thread-grow {
+  animation: thread-grow 0.9s ease-out both;
+}
+
+/* Heartbeat while keeping the floating heart centered */
+@keyframes heartbeat-float {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  14% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  28% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  42% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.animate-heartbeat-float {
+  animation: heartbeat-float 0.8s ease-in-out 1;
 }
 
 /* GFM Table styling */
